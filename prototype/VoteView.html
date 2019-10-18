@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <base target="_top">
+    <style>
+      body{
+        background-color: #red;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        overflow: hidden;
+      }
+      #info{
+        background-color: transparent;
+      }
+    </style>
+    <script>
+          _data = {}
+          _info = {}
+          
+          function init(info) {
+            console.log(info);
+            _info = info;
+            instantiate();
+          }
+          
+          function instantiate() {
+            var div = document.getElementById('voteView');
+            div.innerHTML = `<div id=\"info\">${JSON.stringify(_info)}</div>`;
+          }
+          $(function (){google.script.run.withSuccessHandler(init).getEnlightenmentInfo()});
+    </script>
+  </head>
+  <body>
+    <div id="voteView">Loading enlightenment ...</div>
+  </body>
+</html>
